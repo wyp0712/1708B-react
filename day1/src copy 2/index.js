@@ -2,9 +2,9 @@ import React, { Component, Fragment } from 'react';
 import ReactDOM from 'react-dom'
 import NavTitle from './NavTitle'
 import NavList from './NavList'
+import movieData from './mock/data.json'
 import './index.css'
-import axios from 'axios'
-import './mock/index' // 将mock生成接口的文件，要引入使用接口的组件中
+const movieList = movieData.movieList
 
 // html
 // JSX 语法：  html js {}
@@ -12,7 +12,6 @@ import './mock/index' // 将mock生成接口的文件，要引入使用接口的
 class App extends Component {
   constructor(props) {
     super(props)
-
     this.state = {
       titleArr: [
         {
@@ -27,22 +26,8 @@ class App extends Component {
         }
       ],
       tab: true, // 控制tab切换的值
-      movieList: []
+      movieList,
     }
-  }
-  
-  // 组件挂载之前执行
-  UNSAFE_componentWillMount() {
-
-  }
-  
-  // 组件挂载完成之后执行
-  componentDidMount() {
-    axios.get('/api/movie').then(res => {
-      this.setState(() => ({
-        movieList: res.data
-      }))
-    })
   }
 
   render() {

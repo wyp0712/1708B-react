@@ -1,0 +1,22 @@
+.app-header {
+  width: 100%;
+  display: flex;
+}
+
+.app-header .active {
+  background: red;
+  color:#fff;
+}
+
+.app-header span {
+  flex:1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  padding: 5px;
+  margin: 5px;
+  border:1px solid black;
+  
+}
+

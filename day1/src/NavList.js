@@ -1,26 +1,34 @@
-import React, { Component,Fragment } from 'react'
+import React, { Component, Fragment } from 'react'
 
-class NavList extends Component {
-  render() {
-    const { tab, movieList } = this.props
-    return (
-      <Fragment>
-        {/* { true === item.globalReleased ? <li>{item.nm} </li> : <li>{item.nm} ------- {item.globalReleased}</li> } */}
-        {
-          movieList.map(item => {
-            if (item.globalReleased === tab) {
-              return (
-                <li key={item.id}> {item.nm} </li>
-              )
-            } else {
-              return null
-            }
-          })  
-        }
-      </Fragment>
-    )
-  }
+// 无状态组件 函数组件 UI组件 展示性组件
+const NavList = (props) => {
+  const { tab, movieList } = props
+  return (
+    <Fragment>
+      {
+        movieList.map(item => {
+          return  tab === item.globalReleased ? <li key={item.id}> {item.nm} </li> : null 
+        })
+      }
+    </Fragment>
+  )
 }
+
+// class组件 
+// class NavList extends Component {
+//   render() {
+//     const { tab, movieList } = this.props
+//     return (
+//       <Fragment>
+//         {
+//           movieList.map(item => {
+//             return  tab === item.globalReleased ? <li key={item.id}> {item.nm} </li> : null 
+//           })
+//         }
+//       </Fragment>
+//     )
+//   }
+// }
 
 export default NavList;
 
